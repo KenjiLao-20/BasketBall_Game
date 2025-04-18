@@ -905,6 +905,17 @@ function update() {
         // Calculate score based on current hoop position
         var leftRimX = left_rim.x;
         var rightRimX = right_rim.x;
+// Add this to the update function, after checking if the ball is below the hoop
+if (ball && ball.alive) {
+    // Always ensure the ball is on top of other elements
+    gameplayGroup.bringToTop(ball);
+    
+    // If front_rim exists, make sure it's on top of the ball
+    if (front_rim && front_rim.alive) {
+        gameplayGroup.bringToTop(front_rim);
+            gameplayGroup.bringToTop(hoop);
+    }
+}
         
         if (ball.body.x > leftRimX && ball.body.x < rightRimX) {
             // Scored a basket
