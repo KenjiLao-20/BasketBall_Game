@@ -2,14 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Basketball Challenge</title>
+    <title>Bucket Rush</title>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js"></script>
     <style type="text/css">
+@font-face {
+    font-family: 'YourCustomFont';
+    src: url('tvcd.ttf') format('truetype'); /* Adjust the format if necessary */
+}
 body {
     margin: 0;
     padding: 0;
     background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
+    font-family: 'YourCustomFont', Arial, sans-serif;
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 #gameBorder {
@@ -250,7 +254,7 @@ function create() {
 function createGameElements() {
     // Create game UI in gameplay group
     current_score_text = game.add.text(200, 40, '0', { 
-        font: 'bold 40px Arial', 
+	font: 'bold 40px "YourCustomFont"', 
         fill: '#fff', 
         stroke: '#000',
         strokeThickness: 6,
@@ -259,7 +263,7 @@ function createGameElements() {
     current_score_text.anchor.setTo(0.5);
     
     high_score_text = game.add.text(350, 20, '', { 
-        font: 'bold 16px Arial', 
+	font: 'bold 16px "YourCustomFont"', 
         fill: '#fff',
         stroke: '#000',
         strokeThickness: 4,
@@ -268,7 +272,7 @@ function createGameElements() {
     high_score_text.anchor.setTo(1, 0);
     
     timer_text = game.add.text(50, 20, '', { 
-        font: 'bold 16px Arial', 
+	font: 'bold 16px "YourCustomFont"', 
         fill: '#fff',
         stroke: '#000',
         strokeThickness: 4,
@@ -276,7 +280,7 @@ function createGameElements() {
     }, gameplayGroup);
     
     ballsRemainingText = game.add.text(50, 20, '', { 
-        font: 'bold 16px Arial', 
+	font: 'bold 16px "YourCustomFont"', 
         fill: '#fff',
         stroke: '#000',
         strokeThickness: 4,
@@ -350,7 +354,7 @@ function showStartScreen() {
     buttonGraphic.drawRect(110, 290, 180, 60);
     
     var buttonText = game.add.text(200, 320, 'PLAY GAME', { 
-        font: 'bold 22px "Press Start 2P", cursive, monospace', 
+        font: 'bold 22px "YourCustomFont"', 
         fill: '#ffffff',
         align: 'center'
     }, menuGroup);
@@ -386,7 +390,7 @@ function showModeSelect() {
     
     // Add mode selection title
     var modeTitle = game.add.text(200, 60, 'SELECT GAME MODE', { 
-        font: 'bold 24px "Press Start 2P", cursive, monospace', 
+        font: 'bold 24px "YourCustomFont', 
         fill: '#fff', 
         stroke: '#000',
         strokeThickness: 6,
@@ -429,7 +433,7 @@ function showModeSelect() {
     backButton.drawRect(20, 580, 80, 35);
     
     var backText = game.add.text(60, 598, 'BACK', { 
-        font: 'bold 16px "Press Start 2P", cursive, monospace', 
+        font: 'bold 16px "YourCustomFont', 
         fill: '#fff' 
     }, modeSelectGroup);
     backText.anchor.setTo(0.5);
@@ -498,7 +502,7 @@ function createModeButton(mode, yPosition) {
     
     // Mode name with pixel font style
     var modeName = game.add.text(200, yPosition + 25, modeData.name, { 
-        font: 'bold 20px "Press Start 2P", cursive, monospace', 
+        font: 'bold 20px "YourCustomFont', 
         fill: '#ffffff',
         align: 'center'
     }, buttonContainer);
@@ -506,7 +510,7 @@ function createModeButton(mode, yPosition) {
     
     // Mode description
     var modeDesc = game.add.text(200, yPosition + 55, modeData.description, { 
-        font: '14px Arial', 
+        font: '14px "YourCustomFont"', 
         fill: '#ffffff',
         align: 'center'
     }, buttonContainer);
@@ -515,7 +519,7 @@ function createModeButton(mode, yPosition) {
     // High score for this mode if exists
     if (high_scores[mode] > 0) {
         var highScore = game.add.text(280, yPosition + 80, 'Best: ' + high_scores[mode], { 
-            font: 'italic 12px Arial', 
+            font: 'italic 12px "YourCustomFont"', 
             fill: '#ffffff' 
         }, buttonContainer);
         highScore.anchor.setTo(0.5);
@@ -688,7 +692,7 @@ function endGame() {
     overlay.endFill();
     
     var game_over_text = game.add.text(200, 130, 'GAME OVER', { 
-        font: 'bold 40px "Press Start 2P", cursive, monospace', 
+        font: 'bold 40px "YourCustomFont"', 
         fill: '#fff', 
         align: 'center' 
     }, gameoverGroup);
@@ -696,14 +700,14 @@ function endGame() {
     
     // Mode name
     var modeName = game.add.text(200, 180, gameModes[currentGameMode].name, { 
-        font: 'bold 24px "Press Start 2P", cursive, monospace', 
+        font: 'bold 24px "YourCustomFont"', 
         fill: gameModes[currentGameMode].color, 
         align: 'center' 
     }, gameoverGroup);
     modeName.anchor.setTo(0.5);
     
     var final_score_text = game.add.text(200, 230, 'YOUR SCORE: ' + current_score, { 
-        font: 'bold 30px "Press Start 2P", cursive, monospace', 
+        font: 'bold 30px "YourCustomFont"', 
         fill: '#fff', 
         align: 'center' 
     }, gameoverGroup);
@@ -716,7 +720,7 @@ function endGame() {
         var secondsFormatted = seconds < 10 ? '0' + seconds : seconds;
         
         var timeText = game.add.text(200, 270, 'TIME: ' + minutes + ':' + secondsFormatted, { 
-            font: 'bold 22px "Press Start 2P", cursive, monospace', 
+            font: 'bold 22px "YourCustomFont"', 
             fill: '#fff', 
             align: 'center' 
         }, gameoverGroup);
@@ -724,7 +728,7 @@ function endGame() {
     }
     
     var high_score_final = game.add.text(200, 310, 'BEST SCORE: ' + high_scores[currentGameMode], { 
-        font: '22px "Press Start 2P", cursive, monospace', 
+        font: '22px "YourCustomFont"', 
         fill: '#fff', 
         align: 'center' 
     }, gameoverGroup);
@@ -773,7 +777,7 @@ function endGame() {
     playAgainGraphic.drawRect(60, 370, 280, 50);
     
     var playAgainText = game.add.text(200, 395, 'PLAY AGAIN', { 
-        font: 'bold 22px "Press Start 2P", cursive, monospace', 
+        font: 'bold 22px "YourCustomFont"', 
         fill: '#fff' 
     }, gameoverGroup);
     playAgainText.anchor.setTo(0.5);
@@ -800,7 +804,7 @@ function endGame() {
     modeSelectGraphic.drawRect(60, 440, 280, 50);
     
     var modeSelectText = game.add.text(200, 465, 'SELECT MODE', { 
-        font: 'bold 22px "Press Start 2P", cursive, monospace', 
+        font: 'bold 22px "YourCustomFont"', 
         fill: '#fff' 
     }, gameoverGroup);
     modeSelectText.anchor.setTo(0.5);
@@ -827,7 +831,7 @@ function endGame() {
     mainMenuGraphic.drawRect(60, 510, 280, 50);
     
     var mainMenuText = game.add.text(200, 535, 'MAIN MENU', { 
-        font: 'bold 22px "Press Start 2P", cursive, monospace', 
+        font: 'bold 22px "YourCustomFont"', 
         fill: '#fff' 
     }, gameoverGroup);
     mainMenuText.anchor.setTo(0.5);
