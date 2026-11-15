@@ -30,7 +30,7 @@ An 8-bit style basketball arcade game where you swipe to shoot hoops across mult
 
 <br>
 
-[Live Demo](#) *(add your GitHub Pages or itch.io link here)*
+[Live Demo](https://kenjilao-20.github.io/Basket-Ball-Game-Live/) *(add your GitHub Pages or itch.io link here)*
 
 <br>
 
